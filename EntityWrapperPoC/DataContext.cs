@@ -13,6 +13,8 @@ namespace EntityWrapperPoC
       public DataContext()
          : base("LocalDb")
       {
+         Configuration.LazyLoadingEnabled = true;
+         Configuration.ProxyCreationEnabled = true;
       }
 
 

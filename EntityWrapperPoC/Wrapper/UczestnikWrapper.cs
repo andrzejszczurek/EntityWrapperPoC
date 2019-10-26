@@ -1,6 +1,5 @@
 ﻿using EntityWrapperPoC.CustomAttribute;
 using EntityWrapperPoC.Entity;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace EntityWrapperPoC.Wrapper
@@ -24,7 +23,7 @@ namespace EntityWrapperPoC.Wrapper
       public ModelProduktowyWrapper RelWniosekKalkulacja { get => GetRelation<ModelProduktowyWrapper>(); set => SetValue(value); }
 
       [StandardMap]
-      public IEnumerable<UczestnikWrapper> Uczestnicy { get => GetCollection<UczestnikWrapper>(); }
+      public IEnumerable<ZatrudnienieWrapper> Zatrudnienia { get => GetCollection<ZatrudnienieWrapper>(); }
 
       [StandardMap]
       public string Imie { get => GetValue<string>(); set => SetValue(value); }

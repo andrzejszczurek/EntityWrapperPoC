@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EntityWrapperPoC.Entity
 {
@@ -23,7 +19,7 @@ namespace EntityWrapperPoC.Entity
 
       Wniosek RelWniosek { get; set; }
 
-      List<WniosekUczestnikZatrudnienie> Zatrudnienia { get; set; }
+      ICollection<WniosekUczestnikZatrudnienie> Zatrudnienia { get; set; }
    }
 
    [Table(nameof(WniosekUczestnik))]
@@ -43,7 +39,7 @@ namespace EntityWrapperPoC.Entity
 
       public Wniosek RelWniosek { get; set; }
 
-      public List<WniosekUczestnikZatrudnienie> Zatrudnienia { get; set; }
+      public virtual ICollection<WniosekUczestnikZatrudnienie> Zatrudnienia { get; set; }
 
    }
 }

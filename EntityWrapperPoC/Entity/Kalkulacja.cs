@@ -24,7 +24,7 @@ namespace EntityWrapperPoC.Entity
 
       Guid? StatusKalkulacji { get; set; }
 
-      List<KalkulacjaUczestnik> Uczestnicy { get; set; }
+      ICollection<KalkulacjaUczestnik> Uczestnicy { get; set; }
    }
 
    [Table(nameof(Kalkulacja))]
@@ -48,7 +48,7 @@ namespace EntityWrapperPoC.Entity
 
       public Guid? StatusKalkulacji { get; set; }
 
-      public List<KalkulacjaUczestnik> Uczestnicy { get; set; }
+      public ICollection<KalkulacjaUczestnik> Uczestnicy { get; set; }
 
    }
 }
