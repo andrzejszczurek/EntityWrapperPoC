@@ -50,9 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomAttribute\CollectionMapAttribute.cs" />
     <Compile Include="CustomAttribute\RelationMapAttribute.cs" />
     <Compile Include="CustomAttribute\StandardMapAttribute.cs" />
     <Compile Include="CustomAttribute\SpecificMapAttribute.cs" />
+    <Compile Include="CustomAttribute\WrapAttribute.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="Entity\DataGenerator.cs" />
     <Compile Include="Entity\Kalkulacja.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Wrapper\ModelProduktowyWrapper.cs" />
     <Compile Include="Wrapper\EntityWrapperBase.cs" />
     <Compile Include="Wrapper\UczestnikWrapper.cs" />
+    <Compile Include="Wrapper\EntityWrapperBaseV2.cs" />
     <Compile Include="Wrapper\WrapperHelper.cs" />
     <Compile Include="Wrapper\ZatrudnienieWrapper.cs" />
   </ItemGroup>

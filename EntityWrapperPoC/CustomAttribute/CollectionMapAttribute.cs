@@ -2,20 +2,19 @@
 
 namespace EntityWrapperPoC.CustomAttribute
 {
-   [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
-   public class RelationMapAttribute : Attribute
+   public class CollectionMapAttribute : Attribute
    {
       public Type ElementType { get; }
       public string PropertyName { get; }
 
       public bool IsStandard { get; }
 
-      public RelationMapAttribute()
+      public CollectionMapAttribute()
       {
          IsStandard = true;
       }
 
-      public RelationMapAttribute(Type type, string propertyName)
+      public CollectionMapAttribute(Type type, string propertyName)
       {
          ElementType = type;
          PropertyName = propertyName;
