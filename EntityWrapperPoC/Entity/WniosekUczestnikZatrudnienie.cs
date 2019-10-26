@@ -1,4 +1,6 @@
-﻿namespace EntityWrapperPoC.Entity
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EntityWrapperPoC.Entity
 {
    public interface IWniosekUczestnikZatrudnienie
    {
@@ -12,9 +14,10 @@
 
       int? RelWniosekUczestnikId { get; set; }
 
-      IWniosekUczestnik RelWniosekUczestnik { get; set; }
+      WniosekUczestnik RelWniosekUczestnik { get; set; }
    }
 
+   [Table(nameof(WniosekUczestnikZatrudnienie))]
    public class WniosekUczestnikZatrudnienie : IWniosekUczestnikZatrudnienie
    {
       public int? Id { get; set; }
@@ -27,6 +30,6 @@
 
       public int? RelWniosekUczestnikId { get; set; }
 
-      public IWniosekUczestnik RelWniosekUczestnik { get; set; }
+      public WniosekUczestnik RelWniosekUczestnik { get; set; }
    }
 }

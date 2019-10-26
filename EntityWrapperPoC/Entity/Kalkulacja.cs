@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityWrapperPoC.Entity
 {
@@ -23,9 +24,10 @@ namespace EntityWrapperPoC.Entity
 
       Guid? StatusKalkulacji { get; set; }
 
-      List<IKalkulacjaUczestnik> Uczestnicy { get; set; }
+      List<KalkulacjaUczestnik> Uczestnicy { get; set; }
    }
 
+   [Table(nameof(Kalkulacja))]
    public class Kalkulacja : IKalkulacja
    {
       public int Id { get; set; }
@@ -46,24 +48,7 @@ namespace EntityWrapperPoC.Entity
 
       public Guid? StatusKalkulacji { get; set; }
 
-      public List<IKalkulacjaUczestnik> Uczestnicy { get; set; }
-
-
-      public Kalkulacja(bool createWithData = true)
-      {
-         if (!createWithData)
-            return;
-
-         Id = 1;
-         Numer = "1234";
-         DataWniosku = DateTime.Now;
-         DataPrzetworzenia = DateTime.Now;
-         KwotaBrutto = 10000m;
-         FFR = true;
-         IdentyfikatorOddzialu = 999;
-         OpisKalkulacji = "Testowy wniosek";
-         StatusKalkulacji = Guid.NewGuid();
-      }
+      public List<KalkulacjaUczestnik> Uczestnicy { get; set; }
 
    }
 }

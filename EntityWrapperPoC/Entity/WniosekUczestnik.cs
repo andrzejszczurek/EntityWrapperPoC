@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +21,12 @@ namespace EntityWrapperPoC.Entity
 
       int? RelWniosekId { get; set; }
 
-      IWniosek RelWniosek { get; set; }
+      Wniosek RelWniosek { get; set; }
 
-      List<IWniosekUczestnikZatrudnienie> Zatrudnienia { get; set; }
+      List<WniosekUczestnikZatrudnienie> Zatrudnienia { get; set; }
    }
 
+   [Table(nameof(WniosekUczestnik))]
    public class WniosekUczestnik : IWniosekUczestnik
    {
       public int? Id { get; set; }
@@ -39,23 +41,9 @@ namespace EntityWrapperPoC.Entity
 
       public int? RelWniosekId { get; set; }
 
-      public IWniosek RelWniosek { get; set; }
+      public Wniosek RelWniosek { get; set; }
 
-      public List<IWniosekUczestnikZatrudnienie> Zatrudnienia { get; set; }
+      public List<WniosekUczestnikZatrudnienie> Zatrudnienia { get; set; }
 
-
-      public WniosekUczestnik(IWniosek wniosek, bool createWithData = true)
-      {
-         if (!createWithData)
-            return;
-
-         Id = 1;
-         Imie = "Jan";
-         Nazwisko = "Kowalski";
-         Pesel = "91030305067";
-         ImieWspolmalrzonka = "Małgorzata";
-         RelWniosekId = wniosek.Id;
-         RelWniosek = wniosek;
-      }
    }
 }

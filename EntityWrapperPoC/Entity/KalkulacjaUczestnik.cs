@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityWrapperPoC.Entity
 {
@@ -16,11 +17,12 @@ namespace EntityWrapperPoC.Entity
 
       int? RelKalkulacjaId { get; set; }
 
-      IKalkulacja RelKalkulacja { get; set; }
+      Kalkulacja RelKalkulacja { get; set; }
 
-      List<IKalkulacjaUczestnikZatrudnienie> Zatrudnienia { get; set; }
+      List<KalkulacjaUczestnikZatrudnienie> Zatrudnienia { get; set; }
    }
 
+   [Table(nameof(KalkulacjaUczestnik))]
    public class KalkulacjaUczestnik : IKalkulacjaUczestnik
    {
       public int? Id { get; set; }
@@ -35,23 +37,9 @@ namespace EntityWrapperPoC.Entity
 
       public int? RelKalkulacjaId { get; set; }
 
-      public IKalkulacja RelKalkulacja { get; set; }
+      public Kalkulacja RelKalkulacja { get; set; }
 
-      public List<IKalkulacjaUczestnikZatrudnienie> Zatrudnienia { get; set; }
+      public List<KalkulacjaUczestnikZatrudnienie> Zatrudnienia { get; set; }
 
-
-      public KalkulacjaUczestnik(IKalkulacja kalkulacja, bool createWithData = true)
-      {
-         if (!createWithData)
-            return;
-
-         Id = 1;
-         Imie = "Jan";
-         Nazwisko = "Kowalski";
-         Pesel = "91030305067";
-         ImieWspolmalrzonka = "Małgorzata";
-         RelKalkulacjaId = kalkulacja.Id;
-         RelKalkulacja = kalkulacja;
-      }
    }
 }
