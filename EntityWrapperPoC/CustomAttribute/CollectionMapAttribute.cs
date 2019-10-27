@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EntityWrapperPoC.EntityWrapper.CustomAttribute
+namespace EntityWrapperPoC.CustomAttribute
 {
    public class CollectionMapAttribute : Attribute
    {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EntityWrapperPoC.CustomAttribute
+namespace EntityWrapperPoC.EntityWrapper.CustomAttribute
 {
    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
    public class CreateAttribute : Attribute

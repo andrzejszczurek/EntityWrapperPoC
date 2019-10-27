@@ -1,6 +1,6 @@
 ﻿
 
-namespace EntityWrapperPoC.Wrapper
+namespace EntityWrapperPoC.EntityWrapper.Wrapper
 {
    public interface IWrapper
    {

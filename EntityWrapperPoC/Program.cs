@@ -1,8 +1,6 @@
 ﻿using EntityWrapperPoC.Entity;
-using EntityWrapperPoC.Tester;
 using EntityWrapperPoC.Wrapper;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
@@ -14,12 +12,13 @@ namespace EntityWrapperPoC
 
       static void Main()
       {
-         ZabezpieczeniaTester.RunTest();
+         //ZabezpieczeniaTester.RunTest();
+         BaseTestWrapper();
          Console.ReadKey();
       }
 
 
-      public static void BaseTest()
+      public static void BaseTestWrapper()
       {
          //Console.WriteLine("Start creating data");
          //DataGenerator.CreateWnioski(10);
@@ -67,5 +66,6 @@ namespace EntityWrapperPoC
          Console.WriteLine($"\tWrapper Wniosek uczestnik 2 zatrudnienie 1 '{nameof(IWniosekUczestnikZatrudnienie.RelWniosekUczestnik)}-Nazwisko' {wrapper.Uczestnicy.ToList()[0].Zatrudnienia.ToList()[0].RelUczestnik.Nazwisko}");
 
       }
+
    }
 }

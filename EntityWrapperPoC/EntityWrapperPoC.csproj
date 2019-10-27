@@ -50,12 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityWrapper\CustomAttribute\CollectionMapAttribute.cs" />
-    <Compile Include="EntityWrapper\CustomAttribute\RelationMapAttribute.cs" />
-    <Compile Include="CustomAttribute\CreateAttribute.cs" />
-    <Compile Include="EntityWrapper\CustomAttribute\StandardMapAttribute.cs" />
-    <Compile Include="EntityWrapper\CustomAttribute\SpecificMapAttribute.cs" />
-    <Compile Include="CustomAttribute\WrapAttribute.cs" />
+    <Compile Include="CustomAttribute\CollectionMapAttribute.cs" />
+    <Compile Include="CustomAttribute\RelationMapAttribute.cs" />
+    <Compile Include="EntityWrapper\CustomAttribute\CreateAttribute.cs" />
+    <Compile Include="CustomAttribute\StandardMapAttribute.cs" />
+    <Compile Include="CustomAttribute\SpecificMapAttribute.cs" />
+    <Compile Include="EntityWrapper\CustomAttribute\WrapAttribute.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="Entity\DataGenerator.cs" />
     <Compile Include="Entity\Kalkulacja.cs" />
@@ -82,11 +82,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tester\ZabezpieczeniaTester.cs" />
-    <Compile Include="Wrapper\IWrapper.cs" />
+    <Compile Include="EntityWrapper\IWrapper.cs" />
     <Compile Include="Wrapper\MainWrapper.cs" />
-    <Compile Include="Wrapper\EntityWrapper.cs" />
+    <Compile Include="EntityWrapper\EntityWrapper.cs" />
     <Compile Include="Wrapper\UczestnikWrapper.cs" />
-    <Compile Include="Wrapper\EntityWrapperBaseV2.cs" />
     <Compile Include="Wrapper\ZabezpieczenieWrapper.cs" />
     <Compile Include="Wrapper\ZatrudnienieWrapper.cs" />
   </ItemGroup>

@@ -1,6 +1,6 @@
-﻿using EntityWrapperPoC.CustomAttribute;
-using EntityWrapperPoC.Entity;
-using System;
+﻿using EntityWrapperPoC.Entity;
+using EntityWrapperPoC.EntityWrapper.CustomAttribute;
+using EntityWrapperPoC.EntityWrapper.Wrapper;
 
 namespace EntityWrapperPoC.Wrapper
 {
@@ -16,14 +16,14 @@ namespace EntityWrapperPoC.Wrapper
       {
       }
 
-      [StandardMap]
+      [Wrap]
       public string Typ { get => GetValue<string>(); set => SetValue(value); }
 
-      [StandardMap]
+      [Wrap]
       public bool CzyAutomatyczne { get => GetValue<bool>(); set => SetValue(value); }
 
-      [RelationMap(typeof(IWniosekZabezpieczenie), nameof(IWniosekZabezpieczenie.RelWniosek))]
-      [RelationMap(typeof(IKalkulacjaZabezpieczenie), nameof(IKalkulacjaZabezpieczenie.RelKalkulacja))]
+      [Wrap(typeof(IWniosekZabezpieczenie), nameof(IWniosekZabezpieczenie.RelWniosek))]
+      [Wrap(typeof(IKalkulacjaZabezpieczenie), nameof(IKalkulacjaZabezpieczenie.RelKalkulacja))]
       public MainWrapper RelWniosekKalkulacja { get => GetRelation<MainWrapper>(); set => SetRelation(value); }
 
    }

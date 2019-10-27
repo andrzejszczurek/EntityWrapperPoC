@@ -1,5 +1,6 @@
-﻿using EntityWrapperPoC.CustomAttribute;
-using EntityWrapperPoC.Entity;
+﻿using EntityWrapperPoC.Entity;
+using EntityWrapperPoC.EntityWrapper.CustomAttribute;
+using EntityWrapperPoC.EntityWrapper.Wrapper;
 
 namespace EntityWrapperPoC.Wrapper
 {
@@ -15,17 +16,17 @@ namespace EntityWrapperPoC.Wrapper
       {
       }
 
-      [SpecificMap(typeof(IWniosekUczestnikZatrudnienie), nameof(IWniosekUczestnikZatrudnienie.RelWniosekUczestnik))]
-      [SpecificMap(typeof(IKalkulacjaUczestnikZatrudnienie), nameof(IKalkulacjaUczestnikZatrudnienie.RelKalkulacjaUczestnik))]
+      [Wrap(typeof(IWniosekUczestnikZatrudnienie), nameof(IWniosekUczestnikZatrudnienie.RelWniosekUczestnik))]
+      [Wrap(typeof(IKalkulacjaUczestnikZatrudnienie), nameof(IKalkulacjaUczestnikZatrudnienie.RelKalkulacjaUczestnik))]
       public UczestnikWrapper RelUczestnik { get => GetRelation<UczestnikWrapper>();}
 
-      [StandardMap]
+      [Wrap]
       public string NazwaZakladuPracy { get => GetValue<string>(); set => SetValue(value); }
 
-      [StandardMap]
+      [Wrap]
       public decimal? Zarobki { get => GetValue<decimal?>(); set => SetValue(value); }
 
-      [StandardMap]
+      [Wrap]
       public string ZrodloDochodu { get => GetValue<string>(); set => SetValue(value); }
 
    }

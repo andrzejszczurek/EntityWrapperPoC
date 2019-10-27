@@ -1,5 +1,6 @@
-﻿using EntityWrapperPoC.CustomAttribute;
-using EntityWrapperPoC.Entity;
+﻿using EntityWrapperPoC.Entity;
+using EntityWrapperPoC.EntityWrapper.CustomAttribute;
+using EntityWrapperPoC.EntityWrapper.Wrapper;
 using System.Collections.Generic;
 
 namespace EntityWrapperPoC.Wrapper
@@ -18,23 +19,23 @@ namespace EntityWrapperPoC.Wrapper
 
       }
 
-      [SpecificMap(typeof(WniosekUczestnik), nameof(WniosekUczestnik.RelWniosek))]
-      [SpecificMap(typeof(KalkulacjaUczestnik), nameof(KalkulacjaUczestnik.RelKalkulacja))]
+      [Wrap(typeof(WniosekUczestnik), nameof(WniosekUczestnik.RelWniosek))]
+      [Wrap(typeof(KalkulacjaUczestnik), nameof(KalkulacjaUczestnik.RelKalkulacja))]
       public MainWrapper RelWniosekKalkulacja { get => GetRelation<MainWrapper>(); set => SetValue(value); }
 
-      [StandardMap]
+      [Wrap]
       public IEnumerable<ZatrudnienieWrapper> Zatrudnienia { get => GetCollection<ZatrudnienieWrapper>(); }
 
-      [StandardMap]
+      [Wrap]
       public string Imie { get => GetValue<string>(); set => SetValue(value); }
 
-      [StandardMap]
+      [Wrap]
       public string Nazwisko { get => GetValue<string>(); set => SetValue(value); }
 
-      [StandardMap]
+      [Wrap]
       public string Pesel { get => GetValue<string>(); set => SetValue(value); }
 
-      [StandardMap]
+      [Wrap]
       public string ImieWspolmalrzonka { get => GetValue<string>(); set => SetValue(value); }
    }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EntityWrapperPoC.EntityWrapper.CustomAttribute
+namespace EntityWrapperPoC.CustomAttribute
 {
    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
    public class StandardMapAttribute : Attribute

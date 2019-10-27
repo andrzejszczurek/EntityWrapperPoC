@@ -1,7 +1,6 @@
-﻿
-using System;
+﻿using System;
 
-namespace EntityWrapperPoC.CustomAttribute
+namespace EntityWrapperPoC.EntityWrapper.CustomAttribute
 {
    [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
    public class WrapAttribute : Attribute
@@ -11,6 +10,8 @@ namespace EntityWrapperPoC.CustomAttribute
       public string PropertyName { get; }
 
       public bool IsStandard { get; set; }
+
+
 
       public WrapAttribute()
       {
@@ -23,5 +24,6 @@ namespace EntityWrapperPoC.CustomAttribute
          PropertyName = propertyName;
          IsStandard = false;
       }
+
    }
 }

@@ -1,12 +1,11 @@
-﻿using EntityWrapperPoC.CustomAttribute;
-using EntityWrapperPoC.EntityWrapper.CustomAttribute;
+﻿using EntityWrapperPoC.EntityWrapper.CustomAttribute;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace EntityWrapperPoC.Wrapper
+namespace EntityWrapperPoC.EntityWrapper.Wrapper
 {
    public abstract class EntityWrapper<Wrapper> where Wrapper: IWrapper
    {
@@ -47,7 +46,6 @@ namespace EntityWrapperPoC.Wrapper
          var targetName = FindTargetPropertyName(caller);
          return Get<T>(targetName);
       }
-
 
       protected T GetRelation<T>([CallerMemberName] string caller = null)
          where T : IWrapper
@@ -123,92 +121,92 @@ namespace EntityWrapperPoC.Wrapper
          return property;
       }
 
+      //private string FindTargetPropertyName(string propertyName)
+      //{
+      //   return FindTargetPropertyNameForWrap(propertyName);
+      //   #region [old]
+      //   //var attrs = GetType().GetProperty(propertyName).GetCustomAttributes(false);
+
+      //   //if (attrs.Any(a => a is StandardMapAttribute))
+      //   //   return propertyName;
+
+      //   //var objectAtr = attrs.Where(a => a is SpecificMapAttribute)
+      //   //                     .Cast<SpecificMapAttribute>()
+      //   //                     .SingleOrDefault(a => a.ElementType.IsAssignableFrom(_baseElement.GetType()));
+
+      //   //if (objectAtr != null)
+      //   //   return objectAtr.PropertyName;
+
+      //   //var relationAtr = attrs.Where(a => a is RelationMapAttribute)
+      //   //                     .Cast<RelationMapAttribute>()
+      //   //                     .SingleOrDefault(a => a.ElementType.IsAssignableFrom(_baseElement.GetType()));
+
+      //   //if (relationAtr != null)
+      //   //   return relationAtr.PropertyName;
+
+      //   //throw new Exception($"Brak atrybutów dla mapowania właściwości '{propertyName}', typ obiektu {_baseElement.GetType()} ");
+
+      //   #endregion [old]
+      //   #region [old 2]
+      //   var attrs = GetType().GetProperty(propertyName).GetCustomAttributes(false);
+
+      //   // mapowanie standardowe - entity mają takie same nazwy właściwości
+      //   if (attrs.Any(a => a is StandardMapAttribute))
+      //   {
+      //      return propertyName;
+      //   }
+
+      //   // mapowanie specyficzne - entity mają rózne nazwy właściwości
+      //   if (attrs.Any(a => a is SpecificMapAttribute))
+      //   {
+
+      //      var objectAtr = attrs.Where(a => a is SpecificMapAttribute)
+      //                  .Cast<SpecificMapAttribute>()
+      //                  .SingleOrDefault(a => a.ElementType.IsAssignableFrom(_baseElement.GetType()));
+
+      //      if (objectAtr is null)
+      //         throw new Exception($"Brak atrybutu dla mapowania właściwości '{propertyName}', typ obiektu {_baseElement.GetType()} ");
+
+      //      return objectAtr.PropertyName;
+      //   }
+
+      //   // mapowanie relacyjne - właściwość jest relacją do innego entita
+      //   if (attrs.Any(a => a is RelationMapAttribute))
+      //   {
+      //      var relAttrs = attrs.Where(a => a is RelationMapAttribute);
+      //      if (relAttrs.Count() == 1 && (relAttrs.First() as RelationMapAttribute).IsStandard)
+      //         return propertyName;
+
+      //      var relAttr = relAttrs.Cast<RelationMapAttribute>()
+      //                    .SingleOrDefault(a => a.ElementType.IsAssignableFrom(_baseElement.GetType()));
+
+      //      if (relAttr is null)
+      //         throw new Exception($"Brak atrybutu dla mapowania relacji '{propertyName}', typ obiektu {_baseElement.GetType()} ");
+
+      //      return relAttr.PropertyName;
+      //   }
+
+      //   // mapowanie kolekcji - właściwość jest kolekcją entitów
+      //   if (attrs.Any(a => a is CollectionMapAttribute))
+      //   {
+      //      var colAttrs = attrs.Where(a => a is CollectionMapAttribute);
+      //      if (colAttrs.Count() == 1 && (colAttrs.First() as CollectionMapAttribute).IsStandard)
+      //         return propertyName;
+
+      //      var colAttr = colAttrs.Cast<CollectionMapAttribute>()
+      //                    .SingleOrDefault(a => a.ElementType.IsAssignableFrom(_baseElement.GetType()));
+
+      //      if (colAttr is null)
+      //         throw new Exception($"Brak atrybutu dla mapowania kolekcji '{propertyName}', typ obiektu {_baseElement.GetType()} ");
+
+      //      return colAttr.PropertyName;
+      //   }
+
+      //   throw new Exception($"Brak atrybutów dla mapowania '{propertyName}', typ obiektu {_baseElement.GetType()} ");
+      //   #endregion [old 2]
+      //}
+
       private string FindTargetPropertyName(string propertyName)
-      {
-         //return FindTargetPropertyNameForWrap(propertyName);
-         #region [old]
-         //var attrs = GetType().GetProperty(propertyName).GetCustomAttributes(false);
-
-         //if (attrs.Any(a => a is StandardMapAttribute))
-         //   return propertyName;
-
-         //var objectAtr = attrs.Where(a => a is SpecificMapAttribute)
-         //                     .Cast<SpecificMapAttribute>()
-         //                     .SingleOrDefault(a => a.ElementType.IsAssignableFrom(_baseElement.GetType()));
-
-         //if (objectAtr != null)
-         //   return objectAtr.PropertyName;
-
-         //var relationAtr = attrs.Where(a => a is RelationMapAttribute)
-         //                     .Cast<RelationMapAttribute>()
-         //                     .SingleOrDefault(a => a.ElementType.IsAssignableFrom(_baseElement.GetType()));
-
-         //if (relationAtr != null)
-         //   return relationAtr.PropertyName;
-
-         //throw new Exception($"Brak atrybutów dla mapowania właściwości '{propertyName}', typ obiektu {_baseElement.GetType()} ");
-
-         #endregion [old]
-         #region [old 2]
-         var attrs = GetType().GetProperty(propertyName).GetCustomAttributes(false);
-
-         // mapowanie standardowe - entity mają takie same nazwy właściwości
-         if (attrs.Any(a => a is StandardMapAttribute))
-         {
-            return propertyName;
-         }
-
-         // mapowanie specyficzne - entity mają rózne nazwy właściwości
-         if (attrs.Any(a => a is SpecificMapAttribute))
-         {
-
-            var objectAtr = attrs.Where(a => a is SpecificMapAttribute)
-                        .Cast<SpecificMapAttribute>()
-                        .SingleOrDefault(a => a.ElementType.IsAssignableFrom(_baseElement.GetType()));
-
-            if (objectAtr is null)
-               throw new Exception($"Brak atrybutu dla mapowania właściwości '{propertyName}', typ obiektu {_baseElement.GetType()} ");
-
-            return objectAtr.PropertyName;
-         }
-
-         // mapowanie relacyjne - właściwość jest relacją do innego entita
-         if (attrs.Any(a => a is RelationMapAttribute))
-         {
-            var relAttrs = attrs.Where(a => a is RelationMapAttribute);
-            if (relAttrs.Count() == 1 && (relAttrs.First() as RelationMapAttribute).IsStandard)
-               return propertyName;
-
-            var relAttr = relAttrs.Cast<RelationMapAttribute>()
-                          .SingleOrDefault(a => a.ElementType.IsAssignableFrom(_baseElement.GetType()));
-
-            if (relAttr is null)
-               throw new Exception($"Brak atrybutu dla mapowania relacji '{propertyName}', typ obiektu {_baseElement.GetType()} ");
-
-            return relAttr.PropertyName;
-         }
-
-         // mapowanie kolekcji - właściwość jest kolekcją entitów
-         if (attrs.Any(a => a is CollectionMapAttribute))
-         {
-            var colAttrs = attrs.Where(a => a is CollectionMapAttribute);
-            if (colAttrs.Count() == 1 && (colAttrs.First() as CollectionMapAttribute).IsStandard)
-               return propertyName;
-
-            var colAttr = colAttrs.Cast<CollectionMapAttribute>()
-                          .SingleOrDefault(a => a.ElementType.IsAssignableFrom(_baseElement.GetType()));
-
-            if (colAttr is null)
-               throw new Exception($"Brak atrybutu dla mapowania kolekcji '{propertyName}', typ obiektu {_baseElement.GetType()} ");
-
-            return colAttr.PropertyName;
-         }
-
-         throw new Exception($"Brak atrybutów dla mapowania '{propertyName}', typ obiektu {_baseElement.GetType()} ");
-         #endregion [old 2]
-      }
-
-      private string FindTargetPropertyNameForWrap(string propertyName)
       {
          var attr = GetType().GetProperty(propertyName)
                         .GetCustomAttributes(false)
