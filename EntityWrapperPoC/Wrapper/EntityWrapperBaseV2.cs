@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 
 namespace EntityWrapperPoC.Wrapper
 {
-   public class EntityWrapperBaseV2 : IEntityWrapper
+   public class EntityWrapperBaseV2 : IWrapper
    {
       private enum ReturnType
       {
@@ -17,6 +17,8 @@ namespace EntityWrapperPoC.Wrapper
       }
 
       protected readonly object _baseElement;
+
+      public object BaseElement => _baseElement;
 
       protected EntityWrapperBaseV2(object baseElement)
       {

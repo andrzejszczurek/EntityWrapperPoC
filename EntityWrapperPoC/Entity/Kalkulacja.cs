@@ -10,7 +10,7 @@ namespace EntityWrapperPoC.Entity
 
       string Numer { get; set; }
 
-      DateTime? DataWniosku { get; set; }
+      DateTime? DataKalkulacji { get; set; }
 
       DateTime? DataPrzetworzenia { get; set; }
 
@@ -25,6 +25,8 @@ namespace EntityWrapperPoC.Entity
       Guid? StatusKalkulacji { get; set; }
 
       ICollection<KalkulacjaUczestnik> Uczestnicy { get; set; }
+
+      ICollection<KalkulacjaZabezpieczenie> Zabezpieczenia { get; set; }
    }
 
    [Table(nameof(Kalkulacja))]
@@ -34,7 +36,7 @@ namespace EntityWrapperPoC.Entity
 
       public string Numer { get; set; }
 
-      public DateTime? DataWniosku { get; set; }
+      public DateTime? DataKalkulacji { get; set; }
 
       public DateTime? DataPrzetworzenia { get; set; }
 
@@ -49,6 +51,8 @@ namespace EntityWrapperPoC.Entity
       public Guid? StatusKalkulacji { get; set; }
 
       public ICollection<KalkulacjaUczestnik> Uczestnicy { get; set; }
+
+      public ICollection<KalkulacjaZabezpieczenie> Zabezpieczenia { get; set; }
 
    }
 }

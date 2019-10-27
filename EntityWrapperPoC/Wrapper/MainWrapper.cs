@@ -5,27 +5,37 @@ using System.Collections.Generic;
 
 namespace EntityWrapperPoC.Wrapper
 {
-   public class ModelProduktowyWrapper : EntityWrapperBase
+   public class MainWrapper : EntityWrapper<MainWrapper>, IWrapper
    {
-      public ModelProduktowyWrapper(IWniosek wniosek)
+      public MainWrapper(IWniosek wniosek)
          : base(wniosek)
       {
+         This = wniosek;
       }
 
-      public ModelProduktowyWrapper(IKalkulacja kalkulacja)
+      public MainWrapper(IKalkulacja kalkulacja)
          : base(kalkulacja)
       {
       }
 
-      [StandardMap]
+      public object This { get; set; }
+
+      [CollectionMap]
       public IEnumerable<UczestnikWrapper> Uczestnicy { get => GetCollection<UczestnikWrapper>(); }
+
+      [CollectionMap]
+      public IEnumerable<ZabezpieczenieWrapper> Zabezpieczenia { get => GetCollection<ZabezpieczenieWrapper>(); }
+
+      [Create(typeof(IWniosek), typeof(WniosekZabezpieczenie))]
+      [Create(typeof(IKalkulacja), typeof(WniosekZabezpieczenie))]
+      public ZabezpieczenieWrapper CreateZabezpieczenie() => Create<ZabezpieczenieWrapper>();
 
       [SpecificMap(typeof(IWniosek), nameof(IWniosek.OpisWniosku))]
       [SpecificMap(typeof(IKalkulacja), nameof(IKalkulacja.OpisKalkulacji))]
       public string Opis { get => GetValue<string>(); set => SetValue(value); }
 
       [SpecificMap(typeof(IWniosek), nameof(IWniosek.DataWniosku))]
-      [SpecificMap(typeof(IKalkulacja), nameof(IKalkulacja.DataPrzetworzenia))]
+      [SpecificMap(typeof(IKalkulacja), nameof(IKalkulacja.DataKalkulacji))]
       public DateTime? DataWniosku { get => GetValue<DateTime?>(); set => SetValue(value); }
 
       [StandardMap]

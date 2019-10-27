@@ -3,7 +3,7 @@ using EntityWrapperPoC.Entity;
 
 namespace EntityWrapperPoC.Wrapper
 {
-   public class ZatrudnienieWrapper : EntityWrapperBase
+   public class ZatrudnienieWrapper : EntityWrapper<ZatrudnienieWrapper>, IWrapper
    {
       public ZatrudnienieWrapper(IWniosekUczestnikZatrudnienie entity)
          : base(entity)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace EntityWrapperPoC.Wrapper
 {
-   public class UczestnikWrapper : EntityWrapperBase
+   public class UczestnikWrapper : EntityWrapper<UczestnikWrapper>, IWrapper
    {
       public UczestnikWrapper(IWniosekUczestnik wniosekUczestnik)
          : base(wniosekUczestnik)
@@ -20,7 +20,7 @@ namespace EntityWrapperPoC.Wrapper
 
       [SpecificMap(typeof(WniosekUczestnik), nameof(WniosekUczestnik.RelWniosek))]
       [SpecificMap(typeof(KalkulacjaUczestnik), nameof(KalkulacjaUczestnik.RelKalkulacja))]
-      public ModelProduktowyWrapper RelWniosekKalkulacja { get => GetRelation<ModelProduktowyWrapper>(); set => SetValue(value); }
+      public MainWrapper RelWniosekKalkulacja { get => GetRelation<MainWrapper>(); set => SetValue(value); }
 
       [StandardMap]
       public IEnumerable<ZatrudnienieWrapper> Zatrudnienia { get => GetCollection<ZatrudnienieWrapper>(); }

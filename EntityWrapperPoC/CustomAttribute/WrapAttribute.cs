@@ -24,9 +24,12 @@ namespace EntityWrapperPoC.CustomAttribute
 
       public WrapType WrapType { get; set; }
 
+      public bool IsStandard { get; set; }
+
       public WrapAttribute()
       {
          WrapType = WrapType.Simple;
+         IsStandard = true;
       }
 
       public WrapAttribute(WrapType wrapType, Type type, string propertyName)
@@ -34,6 +37,7 @@ namespace EntityWrapperPoC.CustomAttribute
          WrapType = wrapType;
          ElementType = type;
          PropertyName = propertyName;
+         IsStandard = false;
       }
    }
 }

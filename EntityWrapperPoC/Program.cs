@@ -1,4 +1,5 @@
 ﻿using EntityWrapperPoC.Entity;
+using EntityWrapperPoC.Tester;
 using EntityWrapperPoC.Wrapper;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,17 @@ namespace EntityWrapperPoC
 
       static void Main()
       {
+         ZabezpieczeniaTester.RunTest();
+         Console.ReadKey();
+      }
+
+
+      public static void BaseTest()
+      {
          //Console.WriteLine("Start creating data");
          //DataGenerator.CreateWnioski(10);
          //Console.WriteLine("Stop creating data");
+
          var wniosek = _dbContext.Wnioski.Include(u => u.Uczestnicy).Single(w => w.Id == 1);
 
          Console.WriteLine("Dane Pobrane z entitów\n");
@@ -37,7 +46,7 @@ namespace EntityWrapperPoC
          Console.WriteLine($"\tWniosek uczestnik 2 zatrudnienie 1 '{nameof(IWniosekUczestnikZatrudnienie.RelWniosekUczestnik)}-Nazwisko' {wniosek.Uczestnicy.ToList()[0].Zatrudnienia.ToList()[0].RelWniosekUczestnik.Nazwisko}");
 
 
-         var wrapper = new ModelProduktowyWrapper(wniosek);
+         var wrapper = new MainWrapper(wniosek);
 
          Console.WriteLine("\nDane Pobrane z wrappera\n");
          Console.WriteLine($"\tWrapper Wniosek '{nameof(IWniosek.Id)}' {wrapper.Id}");
@@ -57,7 +66,6 @@ namespace EntityWrapperPoC
          Console.WriteLine($"\tWrapper Wniosek uczestnik 2 zatrudnienie 1 '{nameof(IWniosekUczestnikZatrudnienie.NazwaZakladuPracy)}' {wrapper.Uczestnicy.ToList()[0].Zatrudnienia.ToList()[0].NazwaZakladuPracy}");
          Console.WriteLine($"\tWrapper Wniosek uczestnik 2 zatrudnienie 1 '{nameof(IWniosekUczestnikZatrudnienie.RelWniosekUczestnik)}-Nazwisko' {wrapper.Uczestnicy.ToList()[0].Zatrudnienia.ToList()[0].RelUczestnik.Nazwisko}");
 
-         Console.ReadKey();
       }
    }
 }

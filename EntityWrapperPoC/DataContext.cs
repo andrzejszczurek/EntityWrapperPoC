@@ -27,6 +27,8 @@ namespace EntityWrapperPoC
       
       public DbSet<WniosekUczestnikZatrudnienie> WniosekUczestnikZatrudnienia { get; set; }
 
+      public DbSet<WniosekZabezpieczenie> WniosekZabezpieczenia { get; set; }
+
 
       public DbSet<Kalkulacja> Kalkulacje { get; set; }
 
@@ -34,7 +36,7 @@ namespace EntityWrapperPoC
 
       public DbSet<KalkulacjaUczestnikZatrudnienie> KalkulacjaUczestnikZatrudnienia { get; set; }
 
-
+      public DbSet<KalkulacjaZabezpieczenie> KalkulacjaZabezpieczenie { get; set; }
 
    }
 }

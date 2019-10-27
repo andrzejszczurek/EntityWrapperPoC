@@ -27,6 +27,8 @@ namespace EntityWrapperPoC.Entity
       Guid? StatusWnioskuWCentrali { get; set; }
 
       ICollection<WniosekUczestnik> Uczestnicy { get; set; }
+
+      ICollection<WniosekZabezpieczenie> Zabezpieczenia { get; set; }
    }
 
    [Table(nameof(Wniosek))]
@@ -53,6 +55,8 @@ namespace EntityWrapperPoC.Entity
       public Guid? StatusWnioskuWCentrali { get; set; }
 
       public ICollection<WniosekUczestnik> Uczestnicy { get; set; }
+
+      public ICollection<WniosekZabezpieczenie> Zabezpieczenia { get; set; }
 
    }
 }
