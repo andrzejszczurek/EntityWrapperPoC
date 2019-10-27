@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomAttribute\CollectionMapAttribute.cs" />
-    <Compile Include="CustomAttribute\RelationMapAttribute.cs" />
+    <Compile Include="EntityWrapper\CustomAttribute\CollectionMapAttribute.cs" />
+    <Compile Include="EntityWrapper\CustomAttribute\RelationMapAttribute.cs" />
     <Compile Include="CustomAttribute\CreateAttribute.cs" />
-    <Compile Include="CustomAttribute\StandardMapAttribute.cs" />
-    <Compile Include="CustomAttribute\SpecificMapAttribute.cs" />
+    <Compile Include="EntityWrapper\CustomAttribute\StandardMapAttribute.cs" />
+    <Compile Include="EntityWrapper\CustomAttribute\SpecificMapAttribute.cs" />
     <Compile Include="CustomAttribute\WrapAttribute.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="Entity\DataGenerator.cs" />
@@ -105,5 +105,6 @@
       <DependentUpon>201910271922421_ZabezpieczeniaTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

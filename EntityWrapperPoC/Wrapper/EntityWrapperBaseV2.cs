@@ -1,4 +1,5 @@
 ﻿using EntityWrapperPoC.CustomAttribute;
+using EntityWrapperPoC.EntityWrapper.CustomAttribute;
 using System;
 using System.Collections.Generic;
 using System.Linq;

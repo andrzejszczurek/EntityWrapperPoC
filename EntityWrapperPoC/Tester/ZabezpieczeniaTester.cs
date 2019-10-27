@@ -17,12 +17,12 @@ namespace EntityWrapperPoC.Tester
 
          var wrapper = new MainWrapper(wniosek);
 
-         var newZabWrapper = wrapper.CreateZabezpieczenie();
+         var newZabWrapper = wrapper.CreateZabezpieczenie(ctx);
          newZabWrapper.CzyAutomatyczne = true;
          newZabWrapper.RelWniosekKalkulacja = wrapper;
          newZabWrapper.Typ = "Test 1";
 
-         newZabWrapper.AddToDataContext();
+         newZabWrapper.AddTo(ctx);
          ctx.SaveChanges();
          ctx.Dispose();
       }

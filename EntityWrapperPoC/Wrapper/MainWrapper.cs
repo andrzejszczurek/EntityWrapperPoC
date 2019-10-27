@@ -1,5 +1,6 @@
 ﻿using EntityWrapperPoC.CustomAttribute;
 using EntityWrapperPoC.Entity;
+using EntityWrapperPoC.EntityWrapper.CustomAttribute;
 using System;
 using System.Collections.Generic;
 
@@ -28,7 +29,7 @@ namespace EntityWrapperPoC.Wrapper
 
       [Create(typeof(IWniosek), typeof(WniosekZabezpieczenie))]
       [Create(typeof(IKalkulacja), typeof(WniosekZabezpieczenie))]
-      public ZabezpieczenieWrapper CreateZabezpieczenie() => Create<ZabezpieczenieWrapper>();
+      public ZabezpieczenieWrapper CreateZabezpieczenie(DataContext dataContext) => CreateGet<ZabezpieczenieWrapper>(dataContext);
 
       [SpecificMap(typeof(IWniosek), nameof(IWniosek.OpisWniosku))]
       [SpecificMap(typeof(IKalkulacja), nameof(IKalkulacja.OpisKalkulacji))]
