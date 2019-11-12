@@ -11,20 +11,20 @@ namespace EntityWrapperPoC.Tester
    {
       public static void RunTest()
       {
-         var ctx = DataContext.GetDataContext();
+         //var ctx = DataContext.GetDataContext();
 
-         var wniosek = ctx.Wnioski.Find(1);
+         //var wniosek = ctx.Wnioski.Find(1);
 
-         var wrapper = new MainWrapper(wniosek);
+         //var wrapper = new MainWrapper(wniosek);
 
-         var newZabWrapper = wrapper.CreateZabezpieczenie(ctx);
-         newZabWrapper.CzyAutomatyczne = true;
-         newZabWrapper.RelWniosekKalkulacja = wrapper;
-         newZabWrapper.Typ = "Test 1";
+         //var newZabWrapper = wrapper.CreateZabezpieczenie(ctx);
+         //newZabWrapper.CzyAutomatyczne = true;
+         //newZabWrapper.RelWniosekKalkulacja = wrapper;
+         //newZabWrapper.Typ = "Test 1";
 
-         newZabWrapper.AddTo(ctx);
-         ctx.SaveChanges();
-         ctx.Dispose();
+         //newZabWrapper.AddTo(ctx);
+         //ctx.SaveChanges();
+         //ctx.Dispose();
       }
    }
 }

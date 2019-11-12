@@ -1,11 +1,11 @@
 ﻿using EntityWrapperPoC.Entity;
 using EntityWrapperPoC.EntityWrapper.CustomAttribute;
-using EntityWrapperPoC.EntityWrapper.Wrapper;
+using EntityWrapperPoC.Wrapper;
 using System.Collections.Generic;
 
-namespace EntityWrapperPoC.Wrapper
+namespace EntityWrapperPoC.EntityWrapper.Wrapper.Model
 {
-   public class UczestnikWrapper : EntityWrapper<UczestnikWrapper>, IWrapper
+   public class UczestnikWrapper : WrapperBase, IUczestnik
    {
       public UczestnikWrapper(IWniosekUczestnik wniosekUczestnik)
          : base(wniosekUczestnik)
@@ -19,23 +19,18 @@ namespace EntityWrapperPoC.Wrapper
 
       }
 
-      [Wrap(typeof(WniosekUczestnik), nameof(WniosekUczestnik.RelWniosek))]
-      [Wrap(typeof(KalkulacjaUczestnik), nameof(KalkulacjaUczestnik.RelKalkulacja))]
-      public MainWrapper RelWniosekKalkulacja { get => GetRelation<MainWrapper>(); set => SetValue(value); }
+      [WrapperMap(typeof(IWniosekUczestnik), nameof(WniosekUczestnik.RelWniosek))]
+      [WrapperMap(typeof(IKalkulacjaUczestnik), nameof(KalkulacjaUczestnik.RelKalkulacja))]
+      public IMain RelWniosekKalkulacja { get => GetRelation<MainWrapper>(); set => SetValue(value); }
 
-      [Wrap]
-      public IEnumerable<ZatrudnienieWrapper> Zatrudnienia { get => GetCollection<ZatrudnienieWrapper>(); }
+      public IEnumerable<IZatrudnienie> Zatrudnienia { get => GetCollection<ZatrudnienieWrapper>(); }
 
-      [Wrap]
       public string Imie { get => GetValue<string>(); set => SetValue(value); }
 
-      [Wrap]
       public string Nazwisko { get => GetValue<string>(); set => SetValue(value); }
 
-      [Wrap]
       public string Pesel { get => GetValue<string>(); set => SetValue(value); }
 
-      [Wrap]
       public string ImieWspolmalrzonka { get => GetValue<string>(); set => SetValue(value); }
    }
 }

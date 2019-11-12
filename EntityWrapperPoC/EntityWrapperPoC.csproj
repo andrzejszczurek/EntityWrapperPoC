@@ -55,8 +55,14 @@
     <Compile Include="EntityWrapper\CustomAttribute\CreateAttribute.cs" />
     <Compile Include="CustomAttribute\StandardMapAttribute.cs" />
     <Compile Include="CustomAttribute\SpecificMapAttribute.cs" />
-    <Compile Include="EntityWrapper\CustomAttribute\WrapAttribute.cs" />
+    <Compile Include="EntityWrapper\CustomAttribute\WrapperMapAttribute.cs" />
     <Compile Include="DataContext.cs" />
+    <Compile Include="EntityWrapper\IntegrityCheck\MapperIntegrityChecker.cs" />
+    <Compile Include="EntityWrapper\IntegrityCheck\WrapperIntegrityResult.cs" />
+    <Compile Include="EntityWrapper\IntegrityCheck\WrapperResultFormatExtenssions.cs" />
+    <Compile Include="EntityWrapper\Wrapper\Model\IUczestnik.cs" />
+    <Compile Include="EntityWrapper\Wrapper\Model\IZabezpieczenie.cs" />
+    <Compile Include="EntityWrapper\Wrapper\Model\IZatrudnienie.cs" />
     <Compile Include="Entity\DataGenerator.cs" />
     <Compile Include="Entity\Kalkulacja.cs" />
     <Compile Include="Entity\KalkulacjaUczestnik.cs" />
@@ -66,6 +72,7 @@
     <Compile Include="Entity\WniosekUczestnik.cs" />
     <Compile Include="Entity\WniosekUczestnikZatrudnienie.cs" />
     <Compile Include="Entity\WniosekZabezpieczenie.cs" />
+    <Compile Include="LinqProf\Sandbox.cs" />
     <Compile Include="Migrations\201910261844569_Initial.cs" />
     <Compile Include="Migrations\201910261844569_Initial.Designer.cs">
       <DependentUpon>201910261844569_Initial.cs</DependentUpon>
@@ -83,11 +90,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tester\ZabezpieczeniaTester.cs" />
     <Compile Include="EntityWrapper\IWrapper.cs" />
-    <Compile Include="Wrapper\MainWrapper.cs" />
-    <Compile Include="EntityWrapper\EntityWrapper.cs" />
-    <Compile Include="Wrapper\UczestnikWrapper.cs" />
-    <Compile Include="Wrapper\ZabezpieczenieWrapper.cs" />
-    <Compile Include="Wrapper\ZatrudnienieWrapper.cs" />
+    <Compile Include="EntityWrapper\Wrapper\MainWrapper.cs" />
+    <Compile Include="EntityWrapper\WrapperBase.cs" />
+    <Compile Include="EntityWrapper\Wrapper\Model\IMain.cs" />
+    <Compile Include="EntityWrapper\Wrapper\UczestnikWrapper.cs" />
+    <Compile Include="EntityWrapper\Wrapper\ZabezpieczenieWrapper.cs" />
+    <Compile Include="EntityWrapper\Wrapper\ZatrudnienieWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

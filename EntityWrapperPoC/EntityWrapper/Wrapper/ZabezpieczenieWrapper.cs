@@ -1,10 +1,10 @@
 ﻿using EntityWrapperPoC.Entity;
 using EntityWrapperPoC.EntityWrapper.CustomAttribute;
-using EntityWrapperPoC.EntityWrapper.Wrapper;
+using EntityWrapperPoC.Wrapper;
 
-namespace EntityWrapperPoC.Wrapper
+namespace EntityWrapperPoC.EntityWrapper.Wrapper.Model
 {
-   public class ZabezpieczenieWrapper : EntityWrapper<ZabezpieczenieWrapper>, IWrapper
+   public class ZabezpieczenieWrapper : WrapperBase
    {
       public ZabezpieczenieWrapper(IWniosekZabezpieczenie zabezpieczenie)
          : base(zabezpieczenie)
@@ -16,15 +16,13 @@ namespace EntityWrapperPoC.Wrapper
       {
       }
 
-      [Wrap]
       public string Typ { get => GetValue<string>(); set => SetValue(value); }
 
-      [Wrap]
       public bool CzyAutomatyczne { get => GetValue<bool>(); set => SetValue(value); }
 
-      [Wrap(typeof(IWniosekZabezpieczenie), nameof(IWniosekZabezpieczenie.RelWniosek))]
-      [Wrap(typeof(IKalkulacjaZabezpieczenie), nameof(IKalkulacjaZabezpieczenie.RelKalkulacja))]
-      public MainWrapper RelWniosekKalkulacja { get => GetRelation<MainWrapper>(); set => SetRelation(value); }
+      [WrapperMap(typeof(IWniosekZabezpieczenie), nameof(IWniosekZabezpieczenie.RelWniosek))]
+      [WrapperMap(typeof(IKalkulacjaZabezpieczenie), nameof(IKalkulacjaZabezpieczenie.RelKalkulacja))]
+      public IMain RelWniosekKalkulacja { get => GetRelation<MainWrapper>(); set => SetRelation((MainWrapper)value); }
 
    }
 }

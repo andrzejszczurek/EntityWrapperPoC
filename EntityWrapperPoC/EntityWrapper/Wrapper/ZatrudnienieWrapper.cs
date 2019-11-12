@@ -1,10 +1,9 @@
 ﻿using EntityWrapperPoC.Entity;
 using EntityWrapperPoC.EntityWrapper.CustomAttribute;
-using EntityWrapperPoC.EntityWrapper.Wrapper;
 
-namespace EntityWrapperPoC.Wrapper
+namespace EntityWrapperPoC.EntityWrapper.Wrapper.Model
 {
-   public class ZatrudnienieWrapper : EntityWrapper<ZatrudnienieWrapper>, IWrapper
+   public class ZatrudnienieWrapper : WrapperBase, IZatrudnienie
    {
       public ZatrudnienieWrapper(IWniosekUczestnikZatrudnienie entity)
          : base(entity)
@@ -16,17 +15,14 @@ namespace EntityWrapperPoC.Wrapper
       {
       }
 
-      [Wrap(typeof(IWniosekUczestnikZatrudnienie), nameof(IWniosekUczestnikZatrudnienie.RelWniosekUczestnik))]
-      [Wrap(typeof(IKalkulacjaUczestnikZatrudnienie), nameof(IKalkulacjaUczestnikZatrudnienie.RelKalkulacjaUczestnik))]
-      public UczestnikWrapper RelUczestnik { get => GetRelation<UczestnikWrapper>();}
-
-      [Wrap]
+      [WrapperMap(typeof(IWniosekUczestnikZatrudnienie), nameof(IWniosekUczestnikZatrudnienie.RelWniosekUczestnik))]
+      [WrapperMap(typeof(IKalkulacjaUczestnikZatrudnienie), nameof(IKalkulacjaUczestnikZatrudnienie.RelKalkulacjaUczestnik))]
+      public IUczestnik RelUczestnik { get => GetRelation<UczestnikWrapper>();}
+      
       public string NazwaZakladuPracy { get => GetValue<string>(); set => SetValue(value); }
 
-      [Wrap]
       public decimal? Zarobki { get => GetValue<decimal?>(); set => SetValue(value); }
 
-      [Wrap]
       public string ZrodloDochodu { get => GetValue<string>(); set => SetValue(value); }
 
    }

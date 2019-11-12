@@ -1,4 +1,5 @@
 ﻿using EntityWrapperPoC.Entity;
+using EntityWrapperPoC.LinqProf;
 using EntityWrapperPoC.Wrapper;
 using System;
 using System.Data.Entity;
@@ -13,8 +14,11 @@ namespace EntityWrapperPoC
       static void Main()
       {
          //ZabezpieczeniaTester.RunTest();
-         BaseTestWrapper();
-         Console.ReadKey();
+         //BaseTestWrapper();
+         var sb = new Sandbox();
+         sb.QueryWithNullCheck();
+         sb.QueryWithoutNullCheck();
+         //Console.ReadKey();
       }
 
 

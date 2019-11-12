@@ -3,7 +3,7 @@
 namespace EntityWrapperPoC.EntityWrapper.CustomAttribute
 {
    [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
-   public class WrapAttribute : Attribute
+   public class WrapperMapAttribute : Attribute
    {
       public Type ElementType { get; }
 
@@ -13,12 +13,12 @@ namespace EntityWrapperPoC.EntityWrapper.CustomAttribute
 
 
 
-      public WrapAttribute()
+      public WrapperMapAttribute()
       {
          IsStandard = true;
       }
 
-      public WrapAttribute(Type type, string propertyName)
+      public WrapperMapAttribute(Type type, string propertyName)
       {
          ElementType = type;
          PropertyName = propertyName;
